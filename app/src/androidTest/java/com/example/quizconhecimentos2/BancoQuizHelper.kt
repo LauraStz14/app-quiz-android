@@ -20,17 +20,16 @@ class BancoQuizHelper(context: Context) : SQLiteOpenHelper(
     2 // Versão do banco de dados
 ) {
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL("CREATE TABLE recordes (id INTEGER PRIMARY KEY AUTOINCREMENT,
-            pontos INTEGER NOT NULL)")
+        db.execSQL("CREATE TABLE recordes (id INTEGER PRIMARY KEY AUTOINCREMENT, pontos INTEGER NOT NULL)")
         val sqlCriarTabela = """
-            CREATE TABLE perguntas (
+           CREATE TABLE perguntas (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 enunciado TEXT NOT NULL,
                 opcao_a TEXT NOT NULL,
                 opcao_b TEXT NOT NULL,
                 opcao_c TEXT NOT NULL,
                 correta INTEGER NOT NULL
-            )
+           )
         """.trimIndent()
 
         db.execSQL(sqlCriarTabela)
